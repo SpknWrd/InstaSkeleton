@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -26,12 +26,16 @@ public class LoginFragment extends Fragment {
     EditText Username;
     @BindView(R.id.btnLogin)
     Button btLogin;
+    @BindView(R.id.tvSignup)
+    TextView tvSignup;
     private Unbinder unbinder;
 
-    public interface OnItemSelectedListener {
-        public void onLogin();
+    public interface LoginListener {
+         void onLogin(LoginFragment lf);
+         void clickSignUp();
     }
-    private LoginFragment.OnItemSelectedListener listener;
+    private LoginFragment.LoginListener listener;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,27 +49,28 @@ public class LoginFragment extends Fragment {
                 ParseUser.logInInBackground(user, pass, new LogInCallback() {
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
-                            Toast.makeText(getActivity(), "you did it!",Toast.LENGTH_LONG).show();
-                            listener.onLogin();
-
+                            listener.onLogin(LoginFragment.this);
                         } else {
                         }
                     }
                 });
             }
         });
+        tvSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.clickSignUp();
+            }
+        });
         return view;
     }
 
-public void onSignUp(View view)
-        {
 
-    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof LoginFragment.OnItemSelectedListener) {
-            listener = (LoginFragment.OnItemSelectedListener) context;
+        if (context instanceof LoginFragment.LoginListener) {
+            listener = (LoginFragment.LoginListener) context;
         } else {
             throw new ClassCastException(context.toString()
                     + " must implement MyListFragment.OnItemSelectedListener");

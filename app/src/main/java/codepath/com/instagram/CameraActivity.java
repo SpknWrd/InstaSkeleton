@@ -42,7 +42,6 @@ public class CameraActivity extends AppCompatActivity {
                 Bitmap result = BitmapFactory.decodeByteArray(picture, 0, picture.length);
                 pic.setImageBitmap(result);
             }
-
             @Override
             public void onVideo(CameraKitVideo cameraKitVideo) {
 

@@ -21,6 +21,8 @@ public class ParseApplication extends Application {
         builder.networkInterceptors().add(httpLoggingInterceptor);
 
         ParseObject.registerSubclass(Post.class);
+        ParseObject.registerSubclass(Comment.class);
+        ParseObject.registerSubclass(ProfilePic.class);
 
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("Instagram_callum") // should correspond to APP_ID env variable

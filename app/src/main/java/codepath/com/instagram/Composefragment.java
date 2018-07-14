@@ -1,5 +1,6 @@
 package codepath.com.instagram;
 
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -34,6 +34,12 @@ public class Composefragment extends Fragment {
 
     byte [] byte_array;
 
+    public static interface ComposeListener{
+        void onCompose(Composefragment cf);
+        void startProgress();
+    }
+
+    ComposeListener listener;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,14 +51,14 @@ public class Composefragment extends Fragment {
         btUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                listener.startProgress();
                 ParseFile file = new ParseFile(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis()))
                         , byte_array);
                 Post p= Post.newInstance(ParseUser.getCurrentUser(),file,etCaption.getText().toString());
                 p.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        Toast.makeText(getActivity(),"callback",Toast.LENGTH_SHORT).show();
-
+                        listener.onCompose(Composefragment.this);
                     }
                 });
 
@@ -68,5 +74,14 @@ public class Composefragment extends Fragment {
         cf.setArguments(args);
         return cf;
     }
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ComposeListener) {
+            listener = (ComposeListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement MyListFragment.OnItemSelectedListener");
+        }
+    }
 }

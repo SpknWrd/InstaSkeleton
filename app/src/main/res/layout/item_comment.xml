@@ -26,14 +26,6 @@
             android:layout_marginLeft="5dp"
             android:layout_alignParentTop="true"/>
         <TextView
-            android:id="@+id/tvTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
-        <TextView
             android:id="@+id/tvBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,40 +39,7 @@
             />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/ivPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_below="@+id/text"
-        app:srcCompat="@android:color/holo_blue_bright"
-        android:layout_centerHorizontal="true"
-        />
-    <Button
-        android:id="@+id/bReply"
-        android:layout_below="@+id/ivPicture"
-        android:scaleType="fitXY"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/vector_reply"
-        android:layout_marginLeft="70dp"
-        />
-    <Button
-        android:id="@+id/bFavorite"
-        android:layout_below="@+id/ivPicture"
-        android:layout_toRightOf="@+id/bReply"
-        android:scaleType="fitXY"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/heart_empty"
-        android:layout_marginLeft="100dp"
 
-        />
-    <TextView
-        android:id="@+id/favoriteCounter"
-        android:layout_below="@+id/ivPicture"
-        android:layout_toRightOf="@+id/bFavorite"
-        android:layout_marginLeft="5dp"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package codepath.com.instagram;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,12 @@ public class FeedFragment extends Fragment {
     @BindView(R.id.swipeContainer)
     SwipeRefreshLayout swipeContainer;
 
-    public FeedFragment() {
-        // Required empty public constructor
+    public interface CommentListener {
+        void launchComment(Post p );
+        void launchProfile(ParseUser user);
     }
+
+    CommentListener listener;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +54,7 @@ public class FeedFragment extends Fragment {
 
         //DividerItemDecoration itemDecor = new DividerItemDecoration(this, HORIZONTAL);
 
-        adapter = new InstaAdapter(posts);
+        adapter = new InstaAdapter(listener);
 
         //rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvPost.setAdapter(adapter);
@@ -78,6 +83,8 @@ public class FeedFragment extends Fragment {
             @Override
             public void done(List<Post> objects, ParseException e) {
                 if(e== null){
+                    posts.clear();
+                    adapter.clear();
                     for(int i = 0 ; i < objects.size();i++)
                         posts.add(objects.get(i));
                     adapter.addAll(posts);
@@ -89,6 +96,15 @@ public class FeedFragment extends Fragment {
             }
         });
     }
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof CommentListener) {
+            listener = (CommentListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement MyListFragment.OnItemSelectedListener");
+        }
+    }
 
 }
