@@ -14,7 +14,7 @@ The following **required** functionality is completed:
 - [x] User can take a photo, add a caption, and post it to "Instagram"
 - [x] User can view the last 20 posts submitted to "Instagram"
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [x]? User can tap a post to view post details, including timestamp and caption. Matt told me I didn't have to do this if the info is in the page.
+- [x] ?User can tap a post to view post details, including timestamp and caption. Matt told me I didn't have to do this if the info is in the page.
 The following **optional** features are implemented:
 
 - [x] Style the login page to look like the real Instagram login page.
