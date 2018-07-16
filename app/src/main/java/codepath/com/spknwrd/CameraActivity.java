@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

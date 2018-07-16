@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -14,7 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PictureAdapter  extends RecyclerView.Adapter<codepath.com.instagram.PictureAdapter.Viewholder>{
+public class PictureAdapter  extends RecyclerView.Adapter<codepath.com.spknwrd.PictureAdapter.Viewholder>{
     private List<String> mUrls;
     private Context context;
 
@@ -23,16 +23,16 @@ public class PictureAdapter  extends RecyclerView.Adapter<codepath.com.instagram
     }
     @NonNull
     @Override
-    public codepath.com.instagram.PictureAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public codepath.com.spknwrd.PictureAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_picture, parent, false);
-        codepath.com.instagram.PictureAdapter.Viewholder viewHolder = new codepath.com.instagram.PictureAdapter.Viewholder(view);
+        codepath.com.spknwrd.PictureAdapter.Viewholder viewHolder = new codepath.com.spknwrd.PictureAdapter.Viewholder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final codepath.com.instagram.PictureAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull final codepath.com.spknwrd.PictureAdapter.Viewholder holder, int position) {
         final String string = mUrls.get(position);
         GlideApp.with(context)
                 .load(string)

@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import android.app.Activity;
 import android.content.Context;

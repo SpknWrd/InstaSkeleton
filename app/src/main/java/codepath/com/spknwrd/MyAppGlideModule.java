@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;

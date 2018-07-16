@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
