@@ -1,4 +1,4 @@
-package codepath.com.instagram;
+package codepath.com.spknwrd;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
