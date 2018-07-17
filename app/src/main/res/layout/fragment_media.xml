@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="@color/colorPrimary" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/songname"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:text="Song Name"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/artistname"
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/songname"
+        android:layout_centerHorizontal="true"
+        android:text="Artist"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/songimage"
+        android:layout_width="245dp"
+        android:layout_height="186dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/ic_launcher_background"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/playbtn"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        android:background="@android:drawable/ic_media_play" />
+
+    <Button
+        android:id="@+id/previoubtn"
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/playbtn"
+        android:layout_marginEnd="27dp"
+        android:layout_toStartOf="@+id/playbtn"
+        android:background="@android:drawable/ic_media_previous" />
+
+    <Button
+        android:id="@+id/nextbtn"
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/playbtn"
+        android:layout_marginStart="27dp"
+        android:layout_toEndOf="@+id/playbtn"
+        android:background="@android:drawable/ic_media_next" />
+
+    <Button
+        android:id="@+id/sharebtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@+id/nextbtn"
+        android:layout_alignTop="@+id/addbtn"
+        android:background="@drawable/wshare" />
+
+    <Button
+        android:id="@+id/addbtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/artistname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="142dp"
+        android:background="@drawable/add" />
+
+    <Button
+        android:id="@+id/likebtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/addbtn"
+        android:layout_toStartOf="@+id/previoubtn"
+        android:background="@drawable/wthumbsup" />
+
+    <Button
+        android:id="@+id/dislikebtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/likebtn"
+        android:layout_marginStart="121dp"
+        android:background="@drawable/wthumbsdown" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="332dp"
+        android:layout_height="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="118dp"
+        android:background="@android:color/white"
+        android:visibility="visible" />
+</RelativeLayout>
